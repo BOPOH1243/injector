@@ -1,9 +1,9 @@
+from concurrent.futures import process
 from pymem import *
 
-inputs = input("Enter the DLL PATH and process name to inject: ").split(' ')
-dll_path = inputs[0]
+dll_path = input('Enter the DLL PATH: ')
 dll_path_bytes = bytes(dll_path, "UTF-8")
-process_name=inputs[1]
+process_name = input("Enter the process name")
 
 open_process = Pymem(process_name)
 process.inject_dll(open_process.process_handle, dll_path_bytes)
